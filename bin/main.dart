@@ -14,7 +14,6 @@ Future<void> main() async {
   final ReceiptPrinter receiptPrinter = ReceiptPrinter(ui);
 
   ui.clear();
-  await ui.showBootAnimation();
   ui.showTitle();
   ui.showMenuTable(MenuCatalog.menuPrices);
 

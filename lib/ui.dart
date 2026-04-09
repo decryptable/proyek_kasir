@@ -43,26 +43,14 @@ class ConsoleUi {
   }
 
   void clear() {
-    _console.clearScreen();
-  }
-
-  Future<void> showBootAnimation() async {
-    final List<String> frames = <String>['|', '/', '-', r'\'];
-    _console.setForegroundColor(ConsoleColor.cyan);
-    for (int index = 0; index < 12; index++) {
-      final String frame = frames[index % frames.length];
-      stdout.write('\r$frame Memuat Kasir App...');
-      await Future<void>.delayed(const Duration(milliseconds: 90));
-    }
-    stdout.write('\rSiap digunakan.          \n');
-    _console.resetColorAttributes();
+    stdout.write('\x1Bc');
   }
 
   void showTitle() {
     _console.setForegroundColor(ConsoleColor.green);
     final String border = line('=');
     stdout.writeln(border);
-    stdout.writeln(fitText(' SIMULASI APLIKASI KASIR CLI ', contentWidth));
+    stdout.writeln(fitText('APLIKASI KASIR', contentWidth));
     stdout.writeln(border);
     _console.resetColorAttributes();
   }
